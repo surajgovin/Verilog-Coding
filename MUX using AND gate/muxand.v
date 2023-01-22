@@ -5,8 +5,8 @@ output reg y;
 always@(a,b)
 begin
 if(a==0)
-    y=b;
+    y=0;
 else 
-    y=1;
+    y=b;
 end 
 endmodule
