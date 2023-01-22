@@ -1,18 +1,12 @@
 `timescale 1ns / 1ps
-module muxand_tb();
-reg a,b;
-wire y;
-
-muxand uut(.a(a),.b(b),.y(y));
-
-initial
+module muxand(a,b,y);
+input a,b;
+output reg y;
+always@(a,b)
 begin
-$monitor($time,"a=%d,b=%b,y=%d",a,b,y);
-a=1'b0;b=1'b0;#100;
-a=1'b0;b=1'b1;#100;
-a=1'b1;b=1'b0;#100;
-a=1'b1;b=1'b1;#100;
-
-
-end
+if(a==0)
+    y=b;
+else 
+    y=1;
+end 
 endmodule
